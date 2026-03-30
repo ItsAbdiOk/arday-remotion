@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       index:
-        description: "Word index override (0-29). Leave empty for today's word."
+        description: "Word index override. Leave empty for today's word."
         required: false
         type: string
       dry_run:
@@ -18,7 +18,7 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -55,6 +55,8 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: daily-word-image
-          path: out/daily-*.png
+          name: daily-word-assets
+          path: |
+            out/daily-*
+            out/ab-test-log.json
           retention-days: 7

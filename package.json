@@ -1,0 +1,26 @@
+{
+  "name": "arday-remotion",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "preview": "remotion preview src/index.ts",
+    "render:stills": "npx ts-node render-all.ts --stills",
+    "render:videos": "npx ts-node render-all.ts --videos",
+    "render:all": "npx ts-node render-all.ts"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.296",
+    "@remotion/media-utils": "4.0.296",
+    "@remotion/renderer": "4.0.296",
+    "dotenv": "^17.3.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "remotion": "4.0.296",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0"
+  }
+}

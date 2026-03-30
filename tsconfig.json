@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "commonjs",
+    "jsx": "react-jsx",
+    "strict": true,
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "outDir": "./dist",
+    "rootDir": ".",
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*", "render-all.ts"]
+}

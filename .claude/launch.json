@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "remotion-preview",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["remotion", "preview", "src/index.ts"],
+      "port": 3100,
+      "autoPort": true
+    }
+  ]
+}

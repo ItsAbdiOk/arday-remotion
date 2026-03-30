@@ -6,7 +6,8 @@
     "preview": "remotion preview src/index.ts",
     "render:stills": "npx ts-node render-all.ts --stills",
     "render:videos": "npx ts-node render-all.ts --videos",
-    "render:all": "npx ts-node render-all.ts"
+    "render:all": "npx ts-node render-all.ts",
+    "ab-report": "npx ts-node scripts/ab-report.ts"
   },
   "dependencies": {
     "@remotion/cli": "4.0.296",

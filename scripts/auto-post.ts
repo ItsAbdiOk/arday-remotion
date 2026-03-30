@@ -8,6 +8,7 @@ import {
 } from "@remotion/renderer";
 import { words, getSlug } from "../src/data/words";
 import { buildCaption, pickCaptionStyle, type CaptionStyle } from "../src/data/captions";
+import { pickVariant, getScheduledPublishTime, testQueue, activeTest } from "../src/data/ab-config";
 
 // ---------------------------------------------------------------------------
 // Config
@@ -135,7 +136,8 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
 async function fbUploadPhoto(
   imagePath: string,
   caption: string,
-  endpoint: string
+  endpoint: string,
+  scheduledTime?: number | null
 ): Promise<{ postId: string; imageUrl: string }> {
   const token = requireEnv("META_PAGE_ACCESS_TOKEN");
   const pageId = requireEnv("META_PAGE_ID");
@@ -145,6 +147,10 @@ async function fbUploadPhoto(
   const blob = new Blob([fs.readFileSync(imagePath)], { type: "image/png" });
   formData.append("source", blob, path.basename(imagePath));
   if (caption) formData.append("message", caption);
+  if (scheduledTime) {
+    formData.append("published", "false");
+    formData.append("scheduled_publish_time", String(scheduledTime));
+  }
   formData.append("access_token", token);
 
   const res = await fetch(url, { method: "POST", body: formData });
@@ -238,7 +244,7 @@ async function fbUploadVideoReel(videoPath: string, caption: string): Promise<st
 // ---------------------------------------------------------------------------
 
 async function igCreateAndPublish(
-  params: Record<string, string>
+  params: Record<string, string | number>
 ): Promise<string> {
   const token = requireEnv("META_PAGE_ACCESS_TOKEN");
   const igId = requireEnv("INSTAGRAM_BUSINESS_ACCOUNT_ID");
@@ -293,6 +299,8 @@ interface LogEntry {
   wordIndex: number;
   word: string;
   captionStyle: CaptionStyle;
+  abTestName: string;
+  abVariant: string;
   fbPostId: string;
   igPostId: string;
   fbStoryId: string;
@@ -330,11 +338,18 @@ async function main() {
   const captionStyle = pickCaptionStyle(dayOfYear);
   const caption = buildCaption(word, captionStyle);
 
+  // Active A/B test
+  const currentTest = testQueue[activeTest.testIndex];
+  const variant = pickVariant(dayOfYear);
+  const scheduledTime = getScheduledPublishTime(variant);
+
   console.log(`\n=== Arday Word of the Day ===`);
   console.log(`Date:    ${new Date().toISOString().split("T")[0]}`);
   console.log(`Index:   ${index} / ${words.length}`);
   console.log(`Word:    ${word.en} — ${word.so} (${word.type})`);
   console.log(`Caption: Style ${captionStyle}`);
+  console.log(`A/B Test: ${currentTest?.name || "none"} — variant: ${variant.id}`);
+  if (scheduledTime) console.log(`Scheduled: ${new Date(scheduledTime * 1000).toISOString()}`);
   console.log();
 
   // Render 3 compositions
@@ -361,12 +376,12 @@ async function main() {
 
   // FB Feed
   console.log("  [FB Feed] Uploading...");
-  const fbFeed = await fbUploadPhoto(feedPath, caption, "photos");
+  const fbFeed = await fbUploadPhoto(feedPath, caption, "photos", scheduledTime);
   console.log(`  [FB Feed] ID: ${fbFeed.postId}`);
 
   // FB Story
   console.log("  [FB Story] Uploading...");
-  const fbStory = await fbUploadPhoto(storyPath, "", "photo_stories");
+  const fbStory = await fbUploadPhoto(storyPath, "", "photo_stories", scheduledTime);
   console.log(`  [FB Story] ID: ${fbStory.postId}`);
 
   // FB Reel
@@ -424,6 +439,8 @@ async function main() {
       wordIndex: index,
       word: word.en,
       captionStyle,
+      abTestName: currentTest?.name || "none",
+      abVariant: variant.id,
       fbPostId: fbFeed.postId,
       igPostId,
       fbStoryId: fbStory.postId,

@@ -13,7 +13,7 @@ export const WordOfTheDayStory: React.FC<{ index: number }> = ({ index }) => {
     <AbsoluteFill
       style={{
         background: BG,
-        padding: "200px 80px 280px",
+        padding: "250px 100px 320px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
@@ -22,7 +22,7 @@ export const WordOfTheDayStory: React.FC<{ index: number }> = ({ index }) => {
     >
       <ArdayHeader />
       <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center" }}>
-        <WordCard word={word} scale={0.85} />
+        <WordCard word={word} scale={0.6} />
       </div>
       <ArdayFooter />
     </AbsoluteFill>

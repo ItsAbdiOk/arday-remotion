@@ -429,19 +429,24 @@ async function main() {
     let igReelId = "";
     if (fbReelId) {
       const token = requireEnv("META_PAGE_ACCESS_TOKEN");
-      // Wait for FB to process the video
+      // Wait for FB to fully process the video (needs to be downloadable)
       let videoUrl = "";
-      for (let attempt = 0; attempt < 10; attempt++) {
-        await new Promise((r) => setTimeout(r, 5000));
+      for (let attempt = 0; attempt < 15; attempt++) {
+        await new Promise((r) => setTimeout(r, 10000));
         const videoInfoRes = await fetch(
-          `${GRAPH_API}/${fbReelId}?fields=source&access_token=${token}`
+          `${GRAPH_API}/${fbReelId}?fields=source,status&access_token=${token}`
         );
         const videoInfo = await videoInfoRes.json();
-        if (videoInfo.source) {
+        console.log(`    FB video status: ${videoInfo.status?.video_status || "processing"} (${attempt + 1}/15)`);
+        if (videoInfo.source && videoInfo.status?.video_status === "ready") {
           videoUrl = videoInfo.source;
           break;
         }
-        console.log(`    Waiting for FB video processing... (${attempt + 1}/10)`);
+        if (videoInfo.source && attempt >= 5) {
+          // After 50s, try even if status isn't "ready"
+          videoUrl = videoInfo.source;
+          break;
+        }
       }
       if (videoUrl) {
         igReelId = await igCreateAndPublish({

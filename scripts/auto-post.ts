@@ -308,96 +308,47 @@ async function igCreateAndPublish(
 // ---------------------------------------------------------------------------
 // A/B test logging
 // ---------------------------------------------------------------------------
-// GitHub Release upload (public video URL for IG Reels)
+// Cloudflare R2 upload (public video URL for IG Reels)
 // ---------------------------------------------------------------------------
 
-const GH_REPO = "ItsAbdiOk/arday-remotion";
-const GH_RELEASE_TAG = "media-assets";
+async function uploadToR2(filePath: string, slug: string): Promise<string> {
+  const accessKeyId = process.env.R2_ACCESS_KEY_ID;
+  const secretAccessKey = process.env.R2_SECRET_ACCESS_KEY;
+  const bucketName = process.env.R2_BUCKET_NAME || "arday-media";
+  const publicUrl = process.env.R2_PUBLIC_URL;
+  const endpoint = process.env.R2_ENDPOINT;
 
-async function uploadToGitHubRelease(filePath: string, slug: string): Promise<string> {
-  // Use GITHUB_TOKEN in CI, or gh CLI locally
-  const ghToken = process.env.GITHUB_TOKEN || process.env.GH_TOKEN;
-
-  const fileName = `${slug}-${Date.now()}.mp4`;
-  const apiBase = "https://api.github.com";
-  const headers: Record<string, string> = {
-    Accept: "application/vnd.github+json",
-    "X-GitHub-Api-Version": "2022-11-28",
-  };
-
-  if (ghToken) {
-    headers.Authorization = `Bearer ${ghToken}`;
-  } else {
-    // Try using gh CLI to get token
-    try {
-      const { execSync } = require("child_process");
-      const token = execSync("gh auth token", { encoding: "utf-8" }).trim();
-      headers.Authorization = `Bearer ${token}`;
-    } catch {
-      console.log("    No GitHub token available. Cannot upload to GitHub Release.");
-      return "";
-    }
+  if (!accessKeyId || !secretAccessKey || !publicUrl || !endpoint) {
+    console.log("    R2 credentials not configured. Skipping video upload.");
+    return "";
   }
 
   try {
-    // Get or create the release
-    let releaseId: number;
-    let uploadUrl: string;
+    const { S3Client, PutObjectCommand } = await import("@aws-sdk/client-s3");
 
-    const releaseRes = await fetch(
-      `${apiBase}/repos/${GH_REPO}/releases/tags/${GH_RELEASE_TAG}`,
-      { headers }
+    const client = new S3Client({
+      region: "auto",
+      endpoint,
+      credentials: { accessKeyId, secretAccessKey },
+    });
+
+    const fileName = `videos/${slug}-${Date.now()}.mp4`;
+    const fileBytes = fs.readFileSync(filePath);
+
+    await client.send(
+      new PutObjectCommand({
+        Bucket: bucketName,
+        Key: fileName,
+        Body: fileBytes,
+        ContentType: "video/mp4",
+      })
     );
 
-    if (releaseRes.ok) {
-      const release = await releaseRes.json();
-      releaseId = release.id;
-      uploadUrl = release.upload_url;
-    } else {
-      // Create release
-      const createRes = await fetch(`${apiBase}/repos/${GH_REPO}/releases`, {
-        method: "POST",
-        headers: { ...headers, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tag_name: GH_RELEASE_TAG,
-          name: "Media Assets",
-          body: "Auto-uploaded video assets for social media posting.",
-          draft: false,
-          prerelease: false,
-        }),
-      });
-      const createData = await createRes.json();
-      if (!createRes.ok) {
-        console.log("    Failed to create GitHub release:", createData.message);
-        return "";
-      }
-      releaseId = createData.id;
-      uploadUrl = createData.upload_url;
-    }
-
-    // Upload the file as a release asset
-    const fileBytes = fs.readFileSync(filePath);
-    const uploadBase = uploadUrl.replace("{?name,label}", "");
-    const assetRes = await fetch(`${uploadBase}?name=${fileName}`, {
-      method: "POST",
-      headers: {
-        ...headers,
-        "Content-Type": "video/mp4",
-      },
-      body: fileBytes,
-    });
-    const assetData = await assetRes.json();
-
-    if (!assetRes.ok) {
-      console.log("    Failed to upload asset:", assetData.message);
-      return "";
-    }
-
-    const publicUrl = assetData.browser_download_url;
-    console.log(`    Uploaded to GitHub Release: ${publicUrl}`);
-    return publicUrl;
+    const url = `${publicUrl}/${fileName}`;
+    console.log(`    Uploaded to R2: ${url}`);
+    return url;
   } catch (err) {
-    console.log("    GitHub Release upload error:", err);
+    console.log("    R2 upload error:", err);
     return "";
   }
 }
@@ -519,11 +470,19 @@ async function main() {
     });
     console.log(`  [IG Story] ID: ${igStoryId}`);
 
-    // IG Reel — requires a publicly accessible video/mp4 URL.
-    // GitHub Releases serve as application/octet-stream which IG rejects.
-    // FB Reel covers the video content. IG Reel needs proper CDN hosting (S3/R2).
-    console.log("  [IG Reel] Skipped (needs CDN video hosting — FB Reel posted instead)");
+    // IG Reel — upload to R2 for a public video/mp4 URL
+    console.log("  [IG Reel] Creating...");
     let igReelId = "";
+    const publicVideoUrl = await uploadToR2(reelPath, slug);
+    if (publicVideoUrl) {
+      igReelId = await igCreateAndPublish({
+        video_url: publicVideoUrl,
+        caption,
+        media_type: "REELS",
+      });
+    } else {
+      console.log("    R2 not configured. IG Reel skipped (FB Reel posted instead).");
+    }
     console.log(`  [IG Reel] ID: ${igReelId}`);
 
     // Log

@@ -127,21 +127,18 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
   });
   console.log(`    ${storyPath}`);
 
-  // Video reel (1080x1920, 10s) — requires audio files
+  // Video reel (1080x1920, 10s)
   const audioDir = path.resolve(__dirname, "../public/audio/vocabulary");
-  if (fs.existsSync(audioDir)) {
-    console.log("  Rendering WordVideo (reel)...");
-    const videoComp = await selectComposition({
-      serveUrl: bundled, id: "WordVideo", inputProps: { index },
-    });
-    await renderMedia({
-      composition: videoComp, serveUrl: bundled, codec: "h264",
-      outputLocation: reelPath, inputProps: { index },
-    });
-    console.log(`    ${reelPath}`);
-  } else {
-    console.log("  Skipping video reel (audio files not available)");
-  }
+  const hasAudio = fs.existsSync(audioDir) && fs.readdirSync(audioDir).length > 0;
+  console.log(`  Rendering WordVideo (reel)...${hasAudio ? "" : " (music only, no spoken word)"}`);
+  const videoComp = await selectComposition({
+    serveUrl: bundled, id: "WordVideo", inputProps: { index, hasAudio },
+  });
+  await renderMedia({
+    composition: videoComp, serveUrl: bundled, codec: "h264",
+    outputLocation: reelPath, inputProps: { index, hasAudio },
+  });
+  console.log(`    ${reelPath}`);
 
   return { feedPath, storyPath, reelPath };
 }
@@ -402,14 +399,9 @@ async function main() {
   console.log(`  [FB Story] ID: ${fbStory.postId}`);
 
   // FB Reel
-  let fbReelId = "";
-  if (fs.existsSync(reelPath)) {
-    console.log("  [FB Reel] Uploading...");
-    fbReelId = await fbUploadVideoReel(reelPath, caption);
-    console.log(`  [FB Reel] ID: ${fbReelId}`);
-  } else {
-    console.log("  [FB Reel] Skipped (no video file)");
-  }
+  console.log("  [FB Reel] Uploading...");
+  const fbReelId = await fbUploadVideoReel(reelPath, caption);
+  console.log(`  [FB Reel] ID: ${fbReelId}`);
 
   // --- INSTAGRAM ---
   console.log("\n=== Instagram ===");

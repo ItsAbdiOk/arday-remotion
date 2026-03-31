@@ -424,40 +424,11 @@ async function main() {
     });
     console.log(`  [IG Story] ID: ${igStoryId}`);
 
-    // IG Reel — get the video URL from the FB video upload
-    console.log("  [IG Reel] Creating...");
+    // IG Reel — requires a publicly accessible video URL.
+    // FB video source URLs are authenticated and can't be used by IG.
+    // TODO: Add public video hosting (e.g. S3/R2) to enable IG Reels from CI.
+    console.log("  [IG Reel] Skipped (needs public video hosting — FB Reel posted instead)");
     let igReelId = "";
-    if (fbReelId) {
-      const token = requireEnv("META_PAGE_ACCESS_TOKEN");
-      // Wait for FB to fully process the video (needs to be downloadable)
-      let videoUrl = "";
-      for (let attempt = 0; attempt < 15; attempt++) {
-        await new Promise((r) => setTimeout(r, 10000));
-        const videoInfoRes = await fetch(
-          `${GRAPH_API}/${fbReelId}?fields=source,status&access_token=${token}`
-        );
-        const videoInfo = await videoInfoRes.json();
-        console.log(`    FB video status: ${videoInfo.status?.video_status || "processing"} (${attempt + 1}/15)`);
-        if (videoInfo.source && videoInfo.status?.video_status === "ready") {
-          videoUrl = videoInfo.source;
-          break;
-        }
-        if (videoInfo.source && attempt >= 5) {
-          // After 50s, try even if status isn't "ready"
-          videoUrl = videoInfo.source;
-          break;
-        }
-      }
-      if (videoUrl) {
-        igReelId = await igCreateAndPublish({
-          video_url: videoUrl,
-          caption,
-          media_type: "REELS",
-        });
-      } else {
-        console.log("  [IG Reel] Could not get video URL from FB after waiting. Skipping.");
-      }
-    }
     console.log(`  [IG Reel] ID: ${igReelId}`);
 
     // Log

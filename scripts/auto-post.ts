@@ -416,35 +416,41 @@ async function main() {
     });
     console.log(`  [IG Feed] ID: ${igPostId}`);
 
-    // IG Story — upload the story image as unpublished to FB to get a URL
+    // IG Story — use the feed image URL (IG handles cropping for stories)
     console.log("  [IG Story] Creating...");
-    const storyUpload = await fbUploadPhoto(storyPath, "", null);
-    const storyImageUrl = storyUpload.imageUrl || fbFeed.imageUrl;
     const igStoryId = await igCreateAndPublish({
-      image_url: storyImageUrl,
+      image_url: fbFeed.imageUrl,
       media_type: "STORIES",
     });
     console.log(`  [IG Story] ID: ${igStoryId}`);
 
-    // IG Reel — needs public video URL; upload via FB first
-    // For now, use the video file uploaded to FB
+    // IG Reel — get the video URL from the FB video upload
     console.log("  [IG Reel] Creating...");
-    // Instagram Reels require a public video_url. We'll try using the FB video URL.
     let igReelId = "";
     if (fbReelId) {
       const token = requireEnv("META_PAGE_ACCESS_TOKEN");
-      const videoInfoRes = await fetch(
-        `${GRAPH_API}/${fbReelId}?fields=source&access_token=${token}`
-      );
-      const videoInfo = await videoInfoRes.json();
-      if (videoInfo.source) {
+      // Wait for FB to process the video
+      let videoUrl = "";
+      for (let attempt = 0; attempt < 10; attempt++) {
+        await new Promise((r) => setTimeout(r, 5000));
+        const videoInfoRes = await fetch(
+          `${GRAPH_API}/${fbReelId}?fields=source&access_token=${token}`
+        );
+        const videoInfo = await videoInfoRes.json();
+        if (videoInfo.source) {
+          videoUrl = videoInfo.source;
+          break;
+        }
+        console.log(`    Waiting for FB video processing... (${attempt + 1}/10)`);
+      }
+      if (videoUrl) {
         igReelId = await igCreateAndPublish({
-          video_url: videoInfo.source,
+          video_url: videoUrl,
           caption,
           media_type: "REELS",
         });
       } else {
-        console.log("  [IG Reel] Could not get video URL from FB. Skipping.");
+        console.log("  [IG Reel] Could not get video URL from FB after waiting. Skipping.");
       }
     }
     console.log(`  [IG Reel] ID: ${igReelId}`);

@@ -150,13 +150,12 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
 async function fbUploadPhoto(
   imagePath: string,
   caption: string,
-  endpoint: string,
   scheduledTime?: number | null
 ): Promise<{ postId: string; imageUrl: string }> {
   const token = requireEnv("META_PAGE_ACCESS_TOKEN");
   const pageId = requireEnv("META_PAGE_ID");
 
-  const url = `${GRAPH_API}/${pageId}/${endpoint}`;
+  const url = `${GRAPH_API}/${pageId}/photos`;
   const formData = new FormData();
   const blob = new Blob([fs.readFileSync(imagePath)], { type: "image/png" });
   formData.append("source", blob, path.basename(imagePath));
@@ -171,7 +170,7 @@ async function fbUploadPhoto(
   const data = await res.json();
 
   if (!res.ok) {
-    console.error(`  FB ${endpoint} error:`, JSON.stringify(data, null, 2));
+    console.error(`  FB photos error:`, JSON.stringify(data, null, 2));
     return { postId: "", imageUrl: "" };
   }
 
@@ -188,69 +187,71 @@ async function fbUploadPhoto(
   return { postId: data.id || data.post_id || "", imageUrl };
 }
 
+async function fbUploadStory(imagePath: string): Promise<string> {
+  const token = requireEnv("META_PAGE_ACCESS_TOKEN");
+  const pageId = requireEnv("META_PAGE_ID");
+
+  // Step 1: Upload photo as unpublished
+  const formData = new FormData();
+  const blob = new Blob([fs.readFileSync(imagePath)], { type: "image/png" });
+  formData.append("source", blob, path.basename(imagePath));
+  formData.append("published", "false");
+  formData.append("access_token", token);
+
+  const uploadRes = await fetch(`${GRAPH_API}/${pageId}/photos`, {
+    method: "POST",
+    body: formData,
+  });
+  const uploadData = await uploadRes.json();
+  if (!uploadRes.ok) {
+    console.error("  FB story photo upload error:", JSON.stringify(uploadData, null, 2));
+    return "";
+  }
+  const photoId = uploadData.id;
+
+  // Step 2: Create story using the photo_id
+  const storyRes = await fetch(`${GRAPH_API}/${pageId}/photo_stories`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      photo_id: photoId,
+      access_token: token,
+    }),
+  });
+  const storyData = await storyRes.json();
+  if (!storyRes.ok) {
+    console.error("  FB story publish error:", JSON.stringify(storyData, null, 2));
+    return "";
+  }
+
+  return storyData.id || storyData.post_id || "";
+}
+
 async function fbUploadVideoReel(videoPath: string, caption: string): Promise<string> {
   const token = requireEnv("META_PAGE_ACCESS_TOKEN");
   const pageId = requireEnv("META_PAGE_ID");
   const fileBytes = fs.readFileSync(videoPath);
 
-  // Step 1: Initialize upload session
-  const initRes = await fetch(
-    `${GRAPH_API}/${pageId}/video_reels`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        upload_phase: "start",
-        access_token: token,
-      }),
-    }
-  );
-  const initData = await initRes.json();
-  if (!initRes.ok) {
-    console.error("  FB reel init error:", JSON.stringify(initData, null, 2));
-    return "";
-  }
-  const videoId = initData.video_id;
+  // Use the simple video upload endpoint instead of resumable
+  const formData = new FormData();
+  const blob = new Blob([fileBytes], { type: "video/mp4" });
+  formData.append("source", blob, path.basename(videoPath));
+  formData.append("description", caption);
+  formData.append("access_token", token);
 
-  // Step 2: Upload video bytes
-  const uploadRes = await fetch(
-    `${GRAPH_API}/${videoId}`, {
-      method: "POST",
-      headers: {
-        Authorization: `OAuth ${token}`,
-        offset: "0",
-        file_size: String(fileBytes.length),
-        "Content-Type": "application/octet-stream",
-      },
-      body: fileBytes,
-    }
-  );
-  if (!uploadRes.ok) {
-    const uploadData = await uploadRes.json();
-    console.error("  FB reel upload error:", JSON.stringify(uploadData, null, 2));
+  // Try direct video upload first
+  const res = await fetch(`${GRAPH_API}/${pageId}/videos`, {
+    method: "POST",
+    body: formData,
+  });
+  const data = await res.json();
+
+  if (!res.ok) {
+    console.error("  FB video upload error:", JSON.stringify(data, null, 2));
     return "";
   }
 
-  // Step 3: Finish / publish
-  const finishRes = await fetch(
-    `${GRAPH_API}/${pageId}/video_reels`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        upload_phase: "finish",
-        video_id: videoId,
-        title: caption.split("\n")[0],
-        description: caption,
-        access_token: token,
-      }),
-    }
-  );
-  const finishData = await finishRes.json();
-  if (!finishRes.ok) {
-    console.error("  FB reel finish error:", JSON.stringify(finishData, null, 2));
-    return "";
-  }
-
-  return finishData.video_id || finishData.id || videoId;
+  return data.id || "";
 }
 
 // ---------------------------------------------------------------------------
@@ -390,13 +391,13 @@ async function main() {
 
   // FB Feed
   console.log("  [FB Feed] Uploading...");
-  const fbFeed = await fbUploadPhoto(feedPath, caption, "photos", scheduledTime);
+  const fbFeed = await fbUploadPhoto(feedPath, caption, scheduledTime);
   console.log(`  [FB Feed] ID: ${fbFeed.postId}`);
 
   // FB Story
   console.log("  [FB Story] Uploading...");
-  const fbStory = await fbUploadPhoto(storyPath, "", "photo_stories", scheduledTime);
-  console.log(`  [FB Story] ID: ${fbStory.postId}`);
+  const fbStoryId = await fbUploadStory(storyPath);
+  console.log(`  [FB Story] ID: ${fbStoryId}`);
 
   // FB Reel
   console.log("  [FB Reel] Uploading...");
@@ -415,9 +416,10 @@ async function main() {
     });
     console.log(`  [IG Feed] ID: ${igPostId}`);
 
-    // IG Story
+    // IG Story — upload the story image as unpublished to FB to get a URL
     console.log("  [IG Story] Creating...");
-    let storyImageUrl = fbStory.imageUrl || fbFeed.imageUrl;
+    const storyUpload = await fbUploadPhoto(storyPath, "", null);
+    const storyImageUrl = storyUpload.imageUrl || fbFeed.imageUrl;
     const igStoryId = await igCreateAndPublish({
       image_url: storyImageUrl,
       media_type: "STORIES",
@@ -457,7 +459,7 @@ async function main() {
       abVariant: variant.id,
       fbPostId: fbFeed.postId,
       igPostId,
-      fbStoryId: fbStory.postId,
+      fbStoryId,
       igStoryId,
       fbReelId,
       igReelId,

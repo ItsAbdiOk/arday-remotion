@@ -4,3 +4,5 @@ out/
 output/
 dist/
 *.tsbuildinfo
+public/audio
+public/audio 2

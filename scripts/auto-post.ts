@@ -92,6 +92,18 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
 
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
+  // Ensure public/audio exists (may be a broken symlink in CI)
+  const publicAudio = path.resolve(__dirname, "../public/audio");
+  try {
+    const stat = fs.lstatSync(publicAudio);
+    if (stat.isSymbolicLink() && !fs.existsSync(publicAudio)) {
+      fs.unlinkSync(publicAudio); // remove broken symlink
+      fs.mkdirSync(publicAudio, { recursive: true });
+    }
+  } catch {
+    fs.mkdirSync(publicAudio, { recursive: true });
+  }
+
   console.log("  Bundling Remotion project...");
   const bundled = await bundle({ entryPoint: ENTRY });
 
@@ -115,16 +127,21 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
   });
   console.log(`    ${storyPath}`);
 
-  // Video reel (1080x1920, 10s)
-  console.log("  Rendering WordVideo (reel)...");
-  const videoComp = await selectComposition({
-    serveUrl: bundled, id: "WordVideo", inputProps: { index },
-  });
-  await renderMedia({
-    composition: videoComp, serveUrl: bundled, codec: "h264",
-    outputLocation: reelPath, inputProps: { index },
-  });
-  console.log(`    ${reelPath}`);
+  // Video reel (1080x1920, 10s) — requires audio files
+  const audioDir = path.resolve(__dirname, "../public/audio/vocabulary");
+  if (fs.existsSync(audioDir)) {
+    console.log("  Rendering WordVideo (reel)...");
+    const videoComp = await selectComposition({
+      serveUrl: bundled, id: "WordVideo", inputProps: { index },
+    });
+    await renderMedia({
+      composition: videoComp, serveUrl: bundled, codec: "h264",
+      outputLocation: reelPath, inputProps: { index },
+    });
+    console.log(`    ${reelPath}`);
+  } else {
+    console.log("  Skipping video reel (audio files not available)");
+  }
 
   return { feedPath, storyPath, reelPath };
 }
@@ -385,9 +402,14 @@ async function main() {
   console.log(`  [FB Story] ID: ${fbStory.postId}`);
 
   // FB Reel
-  console.log("  [FB Reel] Uploading...");
-  const fbReelId = await fbUploadVideoReel(reelPath, caption);
-  console.log(`  [FB Reel] ID: ${fbReelId}`);
+  let fbReelId = "";
+  if (fs.existsSync(reelPath)) {
+    console.log("  [FB Reel] Uploading...");
+    fbReelId = await fbUploadVideoReel(reelPath, caption);
+    console.log(`  [FB Reel] ID: ${fbReelId}`);
+  } else {
+    console.log("  [FB Reel] Skipped (no video file)");
+  }
 
   // --- INSTAGRAM ---
   console.log("\n=== Instagram ===");

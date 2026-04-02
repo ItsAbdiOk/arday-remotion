@@ -9,11 +9,11 @@ Renders bilingual vocabulary cards as images and videos using [Remotion](https:/
 
 | | |
 |---|---|
-| **Last posted** | — |
-| **Last word** | — |
-| **Caption style** | — |
-| **Posts sent** | — |
-| **Total posts to date** | 0 |
+| **Last posted** | 2026-04-02 |
+| **Last word** | is not |
+| **Caption style** | Style A |
+| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
+| **Total posts to date** | 1 |
 
 ## A/B Testing
 

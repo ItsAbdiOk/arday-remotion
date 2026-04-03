@@ -9,9 +9,9 @@ Renders bilingual vocabulary cards as images and videos using [Remotion](https:/
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-02 |
-| **Last word** | is not |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-03 |
+| **Last word** | I'm |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

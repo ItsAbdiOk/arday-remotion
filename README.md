@@ -1,5 +1,35 @@
 # Arday Social
 
+<!-- STATUS:START -->
+## Pipeline Status
+
+| | |
+|---|---|
+| **Last posted** | 2026-04-04 |
+| **Last word** | He isn't |
+| **Caption style** | Style A |
+| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Reel) |
+| **Total posts to date** | 1 |
+
+## A/B Testing
+
+| | |
+|---|---|
+| **Active test** | caption-style |
+| **Started** | 2026-03-31 |
+| **Status** | Running |
+| **Tests remaining** | 4 of 5 |
+
+### Test Queue
+- [ ] **caption-style** (active)
+- [ ] posting-time
+- [ ] hashtag-set
+- [ ] format-preference
+- [ ] cta-vs-value
+
+
+<!-- STATUS:END -->
+
 **Automated daily Word of the Day pipeline — renders bilingual vocabulary cards and posts to Instagram and Facebook.**
 
 The content engine for [Arday](https://arday-nine.vercel.app), a Somali-English language learning app. Every day at 8am UTC, this pipeline picks a word from a bank of 1,374 English-Somali vocabulary pairs, renders it as a card in three formats (feed, story, reel), and publishes 6 posts across Instagram and Facebook. No manual work. The word bank won't repeat for 3.7 years.

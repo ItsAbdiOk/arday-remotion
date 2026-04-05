@@ -226,12 +226,20 @@ async function main() {
   const token = requireEnv("META_PAGE_ACCESS_TOKEN");
 
   if (!fs.existsSync(LOG_FILE)) {
-    console.error(`No log file found at ${LOG_FILE}`);
-    console.error("Run auto-post.ts first to generate post data.");
-    process.exit(1);
+    console.log(`No log file found at ${LOG_FILE}`);
+    console.log("Not enough data yet — run auto-post.ts first to generate post data.");
+    console.log("Exiting gracefully.");
+    return;
   }
 
   const log: LogEntry[] = JSON.parse(fs.readFileSync(LOG_FILE, "utf-8"));
+
+  if (log.length === 0) {
+    console.log("Log file is empty — not enough data yet.");
+    console.log("Exiting gracefully.");
+    return;
+  }
+
   console.log(`\nLoaded ${log.length} post entries from log.\n`);
 
   const reports: PostReport[] = [];

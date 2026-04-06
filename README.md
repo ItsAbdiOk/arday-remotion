@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-05 |
-| **Last word** | They're |
-| **Caption style** | Style B |
+| **Last posted** | 2026-04-06 |
+| **Last word** | She's |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

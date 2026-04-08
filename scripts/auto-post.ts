@@ -80,7 +80,7 @@ interface RenderResult {
   reelPath: string;
 }
 
-async function renderAll(index: number, slug: string): Promise<RenderResult> {
+async function renderAll(index: number, slug: string, musicTrackId: string): Promise<RenderResult> {
   const feedPath = path.join(OUT_DIR, `daily-${slug}-feed.png`);
   const storyPath = path.join(OUT_DIR, `daily-${slug}-story.png`);
   const reelPath = path.join(OUT_DIR, `daily-${slug}-reel.mp4`);
@@ -130,13 +130,13 @@ async function renderAll(index: number, slug: string): Promise<RenderResult> {
   // Video reel (1080x1920, 10s)
   const audioDir = path.resolve(__dirname, "../public/audio/vocabulary");
   const hasAudio = fs.existsSync(audioDir) && fs.readdirSync(audioDir).length > 0;
-  console.log(`  Rendering WordVideo (reel)...${hasAudio ? "" : " (music only, no spoken word)"}`);
+  console.log(`  Rendering WordVideo (reel) [music: ${musicTrackId}]${hasAudio ? "" : " (music only, no spoken word)"}`);
   const videoComp = await selectComposition({
-    serveUrl: bundled, id: "WordVideo", inputProps: { index, hasAudio },
+    serveUrl: bundled, id: "WordVideo", inputProps: { index, hasAudio, musicTrackId },
   });
   await renderMedia({
     composition: videoComp, serveUrl: bundled, codec: "h264",
-    outputLocation: reelPath, inputProps: { index, hasAudio },
+    outputLocation: reelPath, inputProps: { index, hasAudio, musicTrackId },
   });
   console.log(`    ${reelPath}`);
 
@@ -404,17 +404,23 @@ async function main() {
   const variant = pickVariant(dayOfYear);
   const scheduledTime = getScheduledPublishTime(variant);
 
+  // If the active test is "background-music", use the variant id as the music track
+  // Otherwise fall back to the default upbeat track (replaces the old "eerie" ambient default)
+  const musicTrackId =
+    currentTest?.name === "background-music" ? variant.id : "electronic";
+
   console.log(`\n=== Arday Word of the Day ===`);
   console.log(`Date:    ${new Date().toISOString().split("T")[0]}`);
   console.log(`Index:   ${index} / ${words.length}`);
   console.log(`Word:    ${word.en} — ${word.so} (${word.type})`);
   console.log(`Caption: Style ${captionStyle}`);
   console.log(`A/B Test: ${currentTest?.name || "none"} — variant: ${variant.id}`);
+  console.log(`Music:   ${musicTrackId}`);
   if (scheduledTime) console.log(`Scheduled: ${new Date(scheduledTime * 1000).toISOString()}`);
   console.log();
 
   // Render 3 compositions
-  const { feedPath, storyPath, reelPath } = await renderAll(index, slug);
+  const { feedPath, storyPath, reelPath } = await renderAll(index, slug, musicTrackId);
 
   console.log(`\n--- Caption (Style ${captionStyle}) ---`);
   console.log(caption);

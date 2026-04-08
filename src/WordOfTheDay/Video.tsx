@@ -10,6 +10,7 @@ import {
   staticFile,
 } from "remotion";
 import { words, getSlug } from "../data/words";
+import { getTrackById, DEFAULT_TRACK_ID } from "../data/music";
 
 const BG = "#1c1917";
 const EMERALD = "#10b981";
@@ -29,12 +30,17 @@ function slideUp(frame: number, fps: number, start: number) {
   return spring({ frame: frame - start, fps, config: { damping: 20, stiffness: 120 } });
 }
 
-export const WordOfTheDayVideo: React.FC<{ index: number; hasAudio?: boolean }> = ({ index, hasAudio = true }) => {
+export const WordOfTheDayVideo: React.FC<{
+  index: number;
+  hasAudio?: boolean;
+  musicTrackId?: string;
+}> = ({ index, hasAudio = true, musicTrackId = DEFAULT_TRACK_ID }) => {
   const word = words[index % words.length];
   const frame = useCurrentFrame();
   const { fps } = useVideoConfig();
   const slug = getSlug(word.en);
   const audioSrc = hasAudio ? staticFile(`audio/vocabulary/${slug}.mp3`) : null;
+  const musicTrack = getTrackById(musicTrackId);
 
   // Timeline (10s / 300 frames at 30fps)
   const ardayFade = fadeIn(frame, 0, 15);                  // 0-0.5s
@@ -57,8 +63,8 @@ export const WordOfTheDayVideo: React.FC<{ index: number; hasAudio?: boolean }> 
         fontFamily: "Plus Jakarta Sans, sans-serif",
       }}
     >
-      {/* Background music */}
-      <Audio src={staticFile("music/bg-loop.mp3")} volume={0.15} loop />
+      {/* Background music — variant from A/B test */}
+      <Audio src={staticFile(`music/${musicTrack.file}`)} volume={0.15} loop />
 
       {/* Vocabulary audio at 1.5s */}
       {audioSrc && (

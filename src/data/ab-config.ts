@@ -27,6 +27,16 @@ export interface ActiveTest {
 
 export const testQueue: TestDefinition[] = [
   {
+    name: "background-music",
+    variants: [
+      { id: "ambient", label: "Ambient chill (bg-loop.mp3)" },
+      { id: "electronic", label: "Upbeat electronic (promo-beat.mp3)" },
+    ],
+    metric: "engagement",
+    minDays: 14,
+    maxDays: 28,
+  },
+  {
     name: "caption-style",
     variants: [
       { id: "A", label: "Short caption" },
@@ -82,7 +92,7 @@ export const testQueue: TestDefinition[] = [
 // Current state — updated by ab-optimize.ts
 export const activeTest: ActiveTest = {
   testIndex: 0,
-  startDate: "2026-03-31",
+  startDate: "2026-04-08",
   lockedWinner: null,
 };
 

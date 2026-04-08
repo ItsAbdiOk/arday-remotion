@@ -36,7 +36,7 @@ export const RemotionRoot: React.FC = () => {
         height={1920}
         fps={FPS}
         durationInFrames={VIDEO_DURATION}
-        defaultProps={{ index: 0, hasAudio: true }}
+        defaultProps={{ index: 0, hasAudio: true, musicTrackId: "electronic" }}
       />
 
       <Composition

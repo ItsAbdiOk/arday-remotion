@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-08 |
-| **Last word** | your |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-09 |
+| **Last word** | his |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 
@@ -15,13 +15,14 @@
 
 | | |
 |---|---|
-| **Active test** | caption-style |
-| **Started** | 2026-03-31 |
+| **Active test** | background-music |
+| **Started** | 2026-04-08 |
 | **Status** | Running |
-| **Tests remaining** | 4 of 5 |
+| **Tests remaining** | 5 of 6 |
 
 ### Test Queue
-- [ ] **caption-style** (active)
+- [ ] **background-music** (active)
+- [ ] caption-style
 - [ ] posting-time
 - [ ] hashtag-set
 - [ ] format-preference

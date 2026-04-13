@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-12 |
-| **Last word** | their |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-13 |
+| **Last word** | The bag belongs to Maria |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

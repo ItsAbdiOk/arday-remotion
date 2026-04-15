@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-14 |
-| **Last word** | Maria is a bag |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-15 |
+| **Last word** | Maria likes bags |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

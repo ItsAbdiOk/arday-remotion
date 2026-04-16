@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-15 |
-| **Last word** | Maria likes bags |
-| **Caption style** | Style B |
+| **Last posted** | 2026-04-16 |
+| **Last word** | Ali's car |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

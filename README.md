@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-16 |
-| **Last word** | Ali's car |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-17 |
+| **Last word** | my mother |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -109,15 +109,16 @@ At one word per day, the rotation runs for **3.7 years** before repeating.
 
 Built-in experimentation framework for optimizing social media engagement:
 
-| Test | What It Measures |
-|:-----|:-----------------|
-| Caption style | Engagement by caption format |
-| Posting time | Best time of day for reach |
-| Hashtag set | Which hashtag groups drive discovery |
-| Format preference | Feed vs. story vs. reel performance |
-| CTA vs. value | Call-to-action vs. educational captions |
+| Test | What It Measures | Window |
+|:-----|:-----------------|:-------|
+| Background music | Reel engagement by backing track | 14–28 days |
+| Caption style | Engagement by caption format | 30–45 days |
+| Posting time | Best time of day for reach | 30–45 days |
+| Hashtag set | Which hashtag groups drive discovery | 30–45 days |
+| Format preference | Feed vs. story vs. reel performance | 30–45 days |
+| CTA vs. value | Call-to-action vs. educational captions | 30–45 days |
 
-Tests run sequentially, one week each. `ab-report.ts` generates weekly engagement metrics from the Meta API. `ab-optimize.ts` automatically adjusts the posting config based on results.
+Tests run sequentially. Variants alternate deterministically by day-of-year. `ab-report.ts` pulls engagement metrics from the Meta Graph API. `ab-optimize.ts` runs weekly and advances to the next test when a variant beats the other by ≥20%, or when `maxDays` is reached.
 
 ---
 
@@ -138,23 +139,33 @@ Tests run sequentially, one week each. `ab-report.ts` generates weekly engagemen
 
 ```
 src/
+├── WordOfTheDay/
+│   ├── Still.tsx            1080x1080 feed composition
+│   ├── Story.tsx            1080x1920 story composition
+│   └── Video.tsx            10s reel composition with swappable music
+├── Promo/                   Standalone 15s/20s/30s marketing videos
 ├── components/
 │   ├── WordCard.tsx         Shared card layout
-│   ├── WordStill.tsx        1080x1080 feed composition
-│   ├── WordStory.tsx        1080x1920 story composition
 │   └── ArdayBranding.tsx    Logo and footer
 ├── data/
-│   └── words.ts             1,374 vocabulary pairs
-├── Root.tsx                 Remotion entry point
+│   ├── words.ts             1,374 vocabulary pairs + slug helper
+│   ├── captions.ts          Style A / Style B templates
+│   ├── ab-config.ts         Test queue + active test state
+│   └── music.ts             Background music track registry
+└── Root.tsx                 Remotion entry point
 scripts/
-├── auto-post.ts             Main pipeline — render + publish
-├── render-all.ts            Batch render all words
-├── ab-report.ts             Weekly engagement report
-└── ab-optimize.ts           Auto-adjust config from A/B results
+├── auto-post.ts             Main pipeline — render + publish 6 posts
+├── ab-report.ts             Fetches engagement metrics from Meta API
+├── ab-optimize.ts           Picks winners, advances test queue
+├── extract-words.ts         One-time: extracts vocab from SomLearn lessons
+├── update-readme.ts         Regenerates the STATUS block in README
+└── render-all.ts            Batch render all words locally
 .github/workflows/
 ├── daily-post.yml           8am UTC cron
 └── weekly-report.yml        Sunday 9am UTC A/B report
 ```
+
+For a full architectural overview and the "why" behind design choices, see [`CLAUDE.md`](CLAUDE.md).
 
 ---
 
@@ -181,15 +192,20 @@ npm install
 
 ### Environment variables
 
+Copy `.env.example` to `.env` and fill in:
+
 ```
-META_PAGE_ACCESS_TOKEN          # System User token (non-expiring)
+META_PAGE_ACCESS_TOKEN          # Page-level token from /me/accounts (non-expiring)
 META_PAGE_ID                    # Facebook Page ID
-INSTAGRAM_BUSINESS_ACCOUNT_ID   # Instagram Business account
-CLOUDFLARE_ACCOUNT_ID
-R2_ACCESS_KEY_ID
+INSTAGRAM_BUSINESS_ACCOUNT_ID   # Linked Instagram Business account
+R2_ACCESS_KEY_ID                # Cloudflare R2 token (Object R/W)
 R2_SECRET_ACCESS_KEY
-R2_BUCKET_NAME
+R2_BUCKET_NAME                  # e.g. arday-media
+R2_PUBLIC_URL                   # e.g. https://pub-xxxx.r2.dev
+R2_ENDPOINT                     # e.g. https://<account>.r2.cloudflarestorage.com
 ```
+
+Full walkthrough — Meta App creation, token generation, R2 setup, GitHub secrets — is in [`README-autopost.md`](README-autopost.md).
 
 ### Run locally
 
@@ -197,6 +213,7 @@ R2_BUCKET_NAME
 npx ts-node scripts/auto-post.ts                  # Full pipeline
 npx ts-node scripts/auto-post.ts --dry-run         # Render only, no posting
 npx ts-node scripts/auto-post.ts --index 42        # Specific word by index
+npm run ab-report                                  # Pull engagement metrics
 npx ts-node scripts/render-all.ts                  # Batch render all words
 ```
 

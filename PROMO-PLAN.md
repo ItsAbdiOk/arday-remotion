@@ -1,5 +1,12 @@
 # 3 Promo Videos for Arday — UI Replication Approach (Remotion)
 
+> **Status: implemented.** The three promo videos (`TheProblem`, `AppWalkthrough`,
+> `WhyArday`) described below are built and live in `src/Promo/`. Rendered MP4s
+> are in `out/content-videos/` and imported into the "content-videos" album in
+> Apple Photos. This document is kept as a historical design record. For
+> day-to-day pipeline docs see [`README.md`](README.md),
+> [`CLAUDE.md`](CLAUDE.md), and [`README-autopost.md`](README-autopost.md).
+
 ## Context
 Instead of text-on-screen slides, these videos **replicate the actual Arday app UI** as React components and animate them — like a founder doing a live product demo. This follows the Remotion "Presscut" pattern where the video IS the product experience.
 

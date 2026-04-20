@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-19 |
-| **Last word** | her phone |
-| **Caption style** | Style B |
+| **Last posted** | 2026-04-20 |
+| **Last word** | an |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

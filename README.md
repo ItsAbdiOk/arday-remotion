@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-20 |
-| **Last word** | an |
-| **Caption style** | Style A |
-| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
+| **Last posted** | 2026-04-21 |
+| **Last word** | a |
+| **Caption style** | Style B |
+| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 
 ## A/B Testing

@@ -5,8 +5,8 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-25 |
-| **Last word** | bookes |
+| **Last posted** | 2026-04-27 |
+| **Last word** | an apple |
 | **Caption style** | Style B |
 | **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |

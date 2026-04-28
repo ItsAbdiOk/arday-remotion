@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-27 |
-| **Last word** | an apple |
-| **Caption style** | Style B |
+| **Last posted** | 2026-04-28 |
+| **Last word** | an umbrella |
+| **Caption style** | Style A |
 | **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 

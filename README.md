@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-04-28 |
-| **Last word** | an umbrella |
-| **Caption style** | Style A |
+| **Last posted** | 2026-04-29 |
+| **Last word** | a pen |
+| **Caption style** | Style B |
 | **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 

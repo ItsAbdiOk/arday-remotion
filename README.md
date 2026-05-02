@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-01 |
-| **Last word** | buss |
-| **Caption style** | Style B |
+| **Last posted** | 2026-05-02 |
+| **Last word** | bus's |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

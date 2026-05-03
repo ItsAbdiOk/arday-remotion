@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-02 |
-| **Last word** | bus's |
-| **Caption style** | Style A |
-| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
+| **Last posted** | 2026-05-03 |
+| **Last word** | children |
+| **Caption style** | Style B |
+| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 
 ## A/B Testing

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-03 |
-| **Last word** | children |
-| **Caption style** | Style B |
+| **Last posted** | 2026-05-04 |
+| **Last word** | childs |
+| **Caption style** | Style A |
 | **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 

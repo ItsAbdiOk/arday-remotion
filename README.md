@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-04 |
-| **Last word** | childs |
-| **Caption style** | Style A |
-| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
+| **Last posted** | 2026-05-05 |
+| **Last word** | childes |
+| **Caption style** | Style B |
+| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 
 ## A/B Testing

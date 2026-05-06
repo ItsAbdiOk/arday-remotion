@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-05 |
-| **Last word** | childes |
-| **Caption style** | Style B |
+| **Last posted** | 2026-05-06 |
+| **Last word** | good |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-06 |
-| **Last word** | good |
-| **Caption style** | Style A |
+| **Last posted** | 2026-05-07 |
+| **Last word** | new / young |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

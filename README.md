@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-09 |
-| **Last word** | boring |
-| **Caption style** | Style B |
+| **Last posted** | 2026-05-10 |
+| **Last word** | interesting |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

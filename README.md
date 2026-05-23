@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-21 |
-| **Last word** | It's seven o'clock |
+| **Last posted** | 2026-05-23 |
+| **Last word** | go to work |
 | **Caption style** | Style B |
-| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
+| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 
 ## A/B Testing

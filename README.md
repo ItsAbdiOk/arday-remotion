@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-24 |
-| **Last word** | have lunch |
-| **Caption style** | Style A |
+| **Last posted** | 2026-05-25 |
+| **Last word** | go to bed |
+| **Caption style** | Style B |
 | **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
 | **Total posts to date** | 1 |
 

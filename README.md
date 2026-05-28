@@ -5,10 +5,10 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-25 |
-| **Last word** | go to bed |
-| **Caption style** | Style B |
-| **Posts sent** | 5/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story) |
+| **Last posted** | 2026-05-28 |
+| **Last word** | make |
+| **Caption style** | Style A |
+| **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 
 ## A/B Testing

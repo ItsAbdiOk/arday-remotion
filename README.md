@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-05-28 |
-| **Last word** | make |
-| **Caption style** | Style A |
+| **Last posted** | 2026-05-29 |
+| **Last word** | It's quarter past nine |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

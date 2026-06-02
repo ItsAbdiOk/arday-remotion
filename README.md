@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-01 |
-| **Last word** | in the morning |
-| **Caption style** | Style A |
+| **Last posted** | 2026-06-02 |
+| **Last word** | in the afternoon |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

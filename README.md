@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-14 |
-| **Last word** | cook |
-| **Caption style** | Style B |
+| **Last posted** | 2026-06-15 |
+| **Last word** | cooked |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

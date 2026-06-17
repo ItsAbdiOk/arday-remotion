@@ -5,8 +5,8 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-15 |
-| **Last word** | cooked |
+| **Last posted** | 2026-06-17 |
+| **Last word** | milk |
 | **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |

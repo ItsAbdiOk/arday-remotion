@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-17 |
-| **Last word** | milk |
-| **Caption style** | Style A |
+| **Last posted** | 2026-06-18 |
+| **Last word** | rice |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

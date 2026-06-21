@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-20 |
-| **Last word** | I'd like a chicken sandwich, please. |
-| **Caption style** | Style B |
+| **Last posted** | 2026-06-21 |
+| **Last word** | I am chicken sandwich. |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

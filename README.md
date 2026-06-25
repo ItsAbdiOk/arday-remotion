@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-24 |
-| **Last word** | What is your name? |
-| **Caption style** | Style B |
+| **Last posted** | 2026-06-25 |
+| **Last word** | Where are you from? |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

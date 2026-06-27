@@ -5,8 +5,8 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-06-25 |
-| **Last word** | Where are you from? |
+| **Last posted** | 2026-06-27 |
+| **Last word** | opposite |
 | **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-07 |
-| **Last word** | she is reading |
-| **Caption style** | Style A |
+| **Last posted** | 2026-07-08 |
+| **Last word** | they are playing |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-08 |
-| **Last word** | they are playing |
-| **Caption style** | Style B |
+| **Last posted** | 2026-07-09 |
+| **Last word** | he is sleeping |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-17 |
-| **Last word** | hat |
-| **Caption style** | Style A |
+| **Last posted** | 2026-07-18 |
+| **Last word** | try on |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

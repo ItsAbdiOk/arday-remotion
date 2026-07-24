@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-23 |
-| **Last word** | socks |
-| **Caption style** | Style A |
+| **Last posted** | 2026-07-24 |
+| **Last word** | I like |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

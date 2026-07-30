@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-29 |
-| **Last word** | don't like |
-| **Caption style** | Style A |
+| **Last posted** | 2026-07-30 |
+| **Last word** | hate |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

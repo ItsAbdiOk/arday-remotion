@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-07-31 |
-| **Last word** | likes |
-| **Caption style** | Style A |
+| **Last posted** | 2026-08-01 |
+| **Last word** | liking |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

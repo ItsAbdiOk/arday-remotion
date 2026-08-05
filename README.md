@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-08-04 |
-| **Last word** | him |
-| **Caption style** | Style A |
+| **Last posted** | 2026-08-05 |
+| **Last word** | them |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

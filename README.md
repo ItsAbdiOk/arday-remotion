@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-08-11 |
-| **Last word** | we were |
-| **Caption style** | Style B |
+| **Last posted** | 2026-08-12 |
+| **Last word** | they were |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

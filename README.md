@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-08-26 |
-| **Last word** | have → had |
-| **Caption style** | Style A |
+| **Last posted** | 2026-08-27 |
+| **Last word** | see → saw |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

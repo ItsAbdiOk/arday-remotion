@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-08-28 |
-| **Last word** | eat → ate |
-| **Caption style** | Style A |
+| **Last posted** | 2026-08-29 |
+| **Last word** | come → came |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

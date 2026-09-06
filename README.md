@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-05 |
-| **Last word** | get → got |
-| **Caption style** | Style A |
+| **Last posted** | 2026-09-06 |
+| **Last word** | buy → bought |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

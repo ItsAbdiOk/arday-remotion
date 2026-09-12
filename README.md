@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-11 |
-| **Last word** | She didn't see |
-| **Caption style** | Style A |
+| **Last posted** | 2026-09-12 |
+| **Last word** | Did they come? |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

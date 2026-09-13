@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-12 |
-| **Last word** | Did they come? |
-| **Caption style** | Style B |
+| **Last posted** | 2026-09-13 |
+| **Last word** | didn't |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

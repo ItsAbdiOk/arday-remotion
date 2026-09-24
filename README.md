@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-23 |
-| **Last word** | Excuse me, where is...? |
-| **Caption style** | Style A |
+| **Last posted** | 2026-09-24 |
+| **Last word** | How much is this? |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

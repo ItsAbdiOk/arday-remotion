@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-27 |
-| **Last word** | I'd like the chicken, please. |
-| **Caption style** | Style A |
+| **Last posted** | 2026-09-28 |
+| **Last word** | Give me chicken now. |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

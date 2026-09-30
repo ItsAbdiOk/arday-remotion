@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-09-29 |
-| **Last word** | I am chicken. |
-| **Caption style** | Style A |
+| **Last posted** | 2026-09-30 |
+| **Last word** | I can swim |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

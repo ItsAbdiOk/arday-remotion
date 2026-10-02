@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-01 |
-| **Last word** | she can cook |
-| **Caption style** | Style A |
+| **Last posted** | 2026-10-02 |
+| **Last word** | I can't drive |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

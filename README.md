@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-09 |
-| **Last word** | speak |
-| **Caption style** | Style A |
+| **Last posted** | 2026-10-10 |
+| **Last word** | speaks |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

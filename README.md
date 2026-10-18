@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-17 |
-| **Last word** | nice |
-| **Caption style** | Style A |
+| **Last posted** | 2026-10-18 |
+| **Last word** | She cooked dinner last night. |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-19 |
-| **Last word** | She cooks dinner every day. |
-| **Caption style** | Style A |
+| **Last posted** | 2026-10-20 |
+| **Last word** | She is going to cook dinner. |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

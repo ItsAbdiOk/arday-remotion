@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-25 |
-| **Last word** | She saw a bird in the garden. |
-| **Caption style** | Style A |
+| **Last posted** | 2026-10-26 |
+| **Last word** | She seed a bird in the garden. |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

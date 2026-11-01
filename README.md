@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-10-31 |
-| **Last word** | drank |
-| **Caption style** | Style A |
+| **Last posted** | 2026-11-01 |
+| **Last word** | drinked |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

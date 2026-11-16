@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-15 |
-| **Last word** | Do you can drive a car? |
-| **Caption style** | Style B |
+| **Last posted** | 2026-11-16 |
+| **Last word** | You can drive a car? |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

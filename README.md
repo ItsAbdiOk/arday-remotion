@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-17 |
-| **Last word** | I can cook |
-| **Caption style** | Style B |
+| **Last posted** | 2026-11-18 |
+| **Last word** | She can't sing |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

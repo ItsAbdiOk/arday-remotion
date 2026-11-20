@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-19 |
-| **Last word** | Can you help? |
-| **Caption style** | Style B |
+| **Last posted** | 2026-11-20 |
+| **Last word** | We can't come |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

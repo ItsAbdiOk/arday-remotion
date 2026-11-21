@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-20 |
-| **Last word** | We can't come |
-| **Caption style** | Style A |
+| **Last posted** | 2026-11-21 |
+| **Last word** | He can play guitar |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-21 |
-| **Last word** | He can play guitar |
-| **Caption style** | Style B |
+| **Last posted** | 2026-11-22 |
+| **Last word** | to speak |
+| **Caption style** | Style A |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

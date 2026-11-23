@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-22 |
-| **Last word** | to speak |
-| **Caption style** | Style A |
+| **Last posted** | 2026-11-23 |
+| **Last word** | She is sleeping |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

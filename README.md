@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-24 |
-| **Last word** | They are working |
-| **Caption style** | Style A |
+| **Last posted** | 2026-11-25 |
+| **Last word** | He is cooking |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 

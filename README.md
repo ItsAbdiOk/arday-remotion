@@ -5,9 +5,9 @@
 
 | | |
 |---|---|
-| **Last posted** | 2026-11-26 |
-| **Last word** | We are watching TV |
-| **Caption style** | Style A |
+| **Last posted** | 2026-11-27 |
+| **Last word** | doesn't |
+| **Caption style** | Style B |
 | **Posts sent** | 6/6 (FB Feed, FB Story, FB Reel, IG Feed, IG Story, IG Reel) |
 | **Total posts to date** | 1 |
 
